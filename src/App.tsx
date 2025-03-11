@@ -1,10 +1,24 @@
+import { Container, Stack, Typography } from '@mui/material';
 import './App.css';
+import { JavaScriptLogo } from './components/JsLogo';
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>JavaScript Quiz</h1>
-    </div>
+    <main>
+      <Container maxWidth="sm">
+        <Stack
+          direction="row"
+          gap={2}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <JavaScriptLogo />
+          <Typography variant="h2" component="h1">
+            JavaScript Quiz
+          </Typography>
+        </Stack>
+      </Container>
+    </main>
   );
 };
 
