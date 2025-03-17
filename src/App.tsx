@@ -1,8 +1,25 @@
-import { Container, Stack, Typography } from '@mui/material';
+import {
+  Container,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import './App.css';
 import { JavaScriptLogo } from './components/JsLogo';
+import { useQuestionsStore } from './store/questions';
+import { useQuestionsData } from './hooks/useQuestionsData';
+import { Start } from './components/Start';
+import { Game } from './components/Game';
+import { Results } from './components/Results';
 
 const App = () => {
+  const questions = useQuestionsStore((state) => state.questions);
+  const { unanswered } = useQuestionsData();
+  const theme = useTheme();
+
+  const medium = useMediaQuery(theme.breakpoints.up('md'));
+
   return (
     <main>
       <Container maxWidth="sm">
@@ -13,10 +30,14 @@ const App = () => {
           justifyContent="center"
         >
           <JavaScriptLogo />
-          <Typography variant="h2" component="h1">
+          <Typography variant={medium ? 'h2' : 'h5'} component="h1">
             JavaScript Quiz
           </Typography>
         </Stack>
+
+        {questions.length === 0 && <Start />}
+        {questions.length > 0 && unanswered > 0 && <Game />}
+        {questions.length > 0 && unanswered === 0 && <Results />}
       </Container>
     </main>
   );
