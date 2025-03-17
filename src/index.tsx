@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
@@ -21,9 +20,7 @@ if (rootEl) {
   root.render(
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <App />
     </ThemeProvider>,
   );
 }
