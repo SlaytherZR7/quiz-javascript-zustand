@@ -40,7 +40,6 @@ export const Question = ({ info }: { info: QuestionType }) => {
         bgcolor: '#222',
         p: 2,
         textAlign: 'left',
-        marginTop: 4,
         maxWidth: '100%',
       }}
     >

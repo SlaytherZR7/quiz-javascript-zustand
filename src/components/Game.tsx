@@ -15,21 +15,25 @@ export const Game = () => {
   return (
     <>
       <Stack
-        direction="row"
+        direction="column"
         gap={2}
         alignItems="center"
         justifyContent="center"
       >
-        <IconButton onClick={goPrevQuestion} disabled={currentQuestion === 0}>
-          <ArrowBackIosNew />
-        </IconButton>
-        {currentQuestion + 1} / {questions.length}
-        <IconButton
-          onClick={goNextQuestion}
-          disabled={currentQuestion >= questions.length - 1}
+        <div
+          style={{ display: 'flex', alignItems: 'center', marginTop: '16px' }}
         >
-          <ArrowForwardIos />
-        </IconButton>
+          <IconButton onClick={goPrevQuestion} disabled={currentQuestion === 0}>
+            <ArrowBackIosNew />
+          </IconButton>
+          {currentQuestion + 1} / {questions.length}
+          <IconButton
+            onClick={goNextQuestion}
+            disabled={currentQuestion >= questions.length - 1}
+          >
+            <ArrowForwardIos />
+          </IconButton>
+        </div>
         <Question info={questionInfo} />
         <Footer />
       </Stack>
