@@ -4,7 +4,7 @@ import { useQuestionsStore } from '../store/questions';
 
 export const Results = () => {
   const { correct, incorrect } = useQuestionsData();
-  const reset = useQuestionsStore((state) => state.reset);
+  const reset = useQuestionsStore((state) => state.resetQuestions);
 
   return (
     <div style={{ marginTop: '16px' }}>
